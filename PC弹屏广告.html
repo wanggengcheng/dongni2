@@ -1,0 +1,90 @@
+<html>
+<body>
+
+<style>
+    .floatResult{z-index:97; }
+    .floatResult .bg{position: fixed;top: 0;bottom: 0;left: 0;right: 0;background: rgba(0, 0, 0, 0.5);z-index:98;}
+    .floatResult .result{text-align: center;position: fixed;left: 0;top: 0;bottom: 0;right: 0;z-index:99;}
+    .floatResult .result .span{display: inline-block;width: 1%;height: 100%;vertical-align: middle;}
+    .floatResult .result .image{width:1000px;height: auto;display: inline-block;vertical-align: middle;position: relative;}
+    .floatResult .result img{width: 1000px; height:563px; vertical-align: middle;}
+    .floatResult .result .imgBtn{display: inline-block;width: 80px;position: absolute;right: 1%;top: 1%;height: 50px;color: #fff;text-align: center;border-radius: 18px; cursor:pointer;}
+    .time-item { width:80px; height:25px; background-color:#e45534;  position:absolute; z-index:1; opacity:.5;border-radius: 18px; }
+    .time-txt {width:80px; height:25px; position:absolute; z-index:2; text-align:center; line-height:25px; font-size:12px; color:#fff;}
+    .time-txt strong{ margin-right:5px; }
+    .tc_box2 { position:fixed; right:0; bottom:0; width:155px; height:200px; z-index:99}
+    .tc_box2 .tc_box2_close{ position:absolute; top:18px; right:0; width:20px; height:20px; cursor:pointer;}
+   </style>
+
+       
+
+   <div class="floatResult" id="tc_box" style="">
+        <div class="bg"></div>
+        <div class="result">
+            <span class="span"></span>
+            <span class="image">
+               
+               
+                <a href="http://www.kimberlite.com.cn/index.php/products/info?id=199.html">
+                    <img src="https://www.kimberlite.com.cn/upload/2017/12/04/15123757088503l4306.jpg ">
+                </a>
+                
+                 <a class="imgBtn" onclick="tc_box_close()">
+                    <div class="time-item"></div>
+                    <div class="time-txt"><strong id="second_show"><s></s></strong><span>跳过</span></div>
+                 </a>
+
+            </span>
+            <span class="span"></span>
+        </div>
+    </div>
+
+    <script>
+    function tc_box_close(){
+      document.getElementById("tc_box").style.display = "none";  
+      document.getElementById("tc_box2").style.display = "block";  
+    }
+    
+    function tc_box_close2(){
+      document.getElementById("tc_box2").style.display = "none";  
+    }
+    
+    function codefans(){
+    var box=document.getElementById("tc_box");
+    box.style.display="none"; 
+    }
+    setTimeout("codefans()",11000);//5秒，可以改动
+    
+    function codefans2(){
+    var box=document.getElementById("tc_box2");
+    box.style.display="block"; 
+    }
+    setTimeout("codefans2()",11000);//5秒，可以改动
+
+var intDiff = parseInt(10);//倒计时总秒数量
+function timer(intDiff){
+    window.setInterval(function(){
+
+    var day=0,
+        hour=0,
+        minute=0,
+        second=10;//时间默认值        
+
+    if(intDiff > 0){
+        second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+    }
+
+
+    if (second <= 9) second = '0' + second;
+    $('#second_show').html('<s></s>'+second+'秒');
+    intDiff--;
+    }, 1000);
+} 
+$(function(){
+    timer(intDiff);
+}); 
+
+</script>
+   </body>
+</html>
+
